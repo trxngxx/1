@@ -1,35 +1,37 @@
 pipeline {
-   agent none
-   stages {
-      stage('Build Image') {
-	     when {
-             branch 'main'
-            }
-         agent {
-             node {
-                  label 'test'
-                  customWorkspace '/home/ubuntu/jenkins/multi-branch/'
-                }
-            }
-         steps {
-               sh "cd /home/ubuntu/jenkins/multi-branch/repo1 && docker build nginx_v1 ."
-           }
-       }
-      stage('Deploy Image') {
-        when {
-             branch 'main'
-            }
-        agent {
-              node {
-                  label 'test'
-                  customWorkspace '/home/ubuntu/jenkins/multi-branch/'
-                }
-            }
-        steps {
-              sh """
-              echo "Deploying Code"
-              """
-          }
+  agent any
+
+  stages {
+    stage('Build Image') {
+      steps {
+        script {
+          docker.build("my-nginx:latest", "-f Dockerfile.nginx .")
+        }
       }
-   }
+    }
+
+    stage('Run Container') {
+      steps {
+        script {
+          docker.image('my-nginx:latest').run('-p 8083:80 --name my-nginx-container')
+        }
+      }
+    }
+
+    stage('Verify') {
+      steps {
+        sh 'curl http://localhost:8083'
+      }
+    }
+  }
+
+  post {
+    success {
+      echo 'Nginx container was successfully built and is running on port 8083'
+    }
+
+    failure {
+      echo 'Failed to build and run Nginx container'
+    }
+  }
 }
