@@ -9,7 +9,7 @@ pipeline {
        agent {
                 node {
                     label 'test'
-                    customWorkspace '/home/ubuntu/jenkins/multi-branch/'
+                    customWorkspace '/home/ngo1/jenkins/multi-branch/'
                 }
             }
 
