@@ -1,12 +1,26 @@
 pipeline {
-  agent test
 
   stages {
-    stage('Build Image') {
-      steps {
-        sh 'docker build -t nginx:test .'
+
+    stage('build images') {
+       when {
+                branch 'main'
+            }
+       agent {
+                node {
+                    label 'test'
+                    customWorkspace '/home/ubuntu/jenkins/multi-branch/'
+                }
+            }
+
+       steps {
+
+        sh ' docker build -t nginx:v1 .'
+
       }
+
     }
-   
-}
+
+  }
+
 }
