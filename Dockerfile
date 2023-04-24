@@ -5,11 +5,13 @@ FROM nginx:latest
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy SSL certificate and key
-COPY ssl.crt /etc/ssl/certs/
-COPY ssl.key /etc/ssl/private/
+COPY /home/ngo1/Desktop/cert/server.crt /etc/nginx/
+COPY /home/ngo1/Desktop/cert/server.key /etc/nginx/
 
 # Copy web content
 COPY html /usr/share/nginx/html
 
 # Expose ports
 EXPOSE 80 443
+
+
