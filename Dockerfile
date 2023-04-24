@@ -9,7 +9,7 @@ COPY /home/ngo1/Desktop/cert/server.crt /etc/nginx/
 COPY /home/ngo1/Desktop/cert/server.key /etc/nginx/
 
 # Copy web content
-COPY html /usr/share/nginx/html
+COPY html /usr/share/nginx/html/index.html
 
 # Expose ports
 EXPOSE 80 443
