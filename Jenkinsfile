@@ -7,7 +7,8 @@ pipeline {
     }
     stages {
         stage('Build') {
-            steps {               
+            steps {     
+                git 'https://github.com/trxngxx/1.git'
                 sh 'docker build -t my-nginx .'
             }
         }
