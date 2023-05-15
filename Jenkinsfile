@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Docker Push') {
             steps {
-      	       withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'Tr@nngo99', usernameVariable: 'trxngxx')]) {
+      	       withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'Tr@nngo99', usernameVariable: '29trxngxx')]) {
         	 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
            sh 'docker push trxngxx/jenkins_nginx:v1'
          }
