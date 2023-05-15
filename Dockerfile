@@ -13,5 +13,3 @@ COPY html /usr/share/nginx/html/index.html
 
 # Expose ports
 EXPOSE 80 443
-
-
