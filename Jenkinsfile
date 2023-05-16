@@ -21,7 +21,7 @@ pipeline {
             steps {
          	 withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'Tr@nngo99', usernameVariable: 'trxngxx')]) {
          	 sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                 sh 'docker push trxngxx/jenkins_nginx:v1'
+                 sh 'docker push trxngxx/jenkins_nginx:v2'
                   }
                }
            }
