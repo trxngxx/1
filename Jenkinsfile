@@ -29,7 +29,7 @@ pipeline {
         
         stage('Push to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dckr_pat_jpoCKxMFDAGJrSuGS_yfrLfwkCA', usernameVariable: '29trxngxx')]) {
+                withDockerRegistry([credentialsId: 'dockerHub', url: 'https://index.docker.io/v1/']) {
                     sh 'docker login -u 29trxngxx -p dckr_pat_jpoCKxMFDAGJrSuGS_yfrLfwkCA'
                     sh 'docker push jenkins-nginx:my-nginx-v1'
                 }
