@@ -25,7 +25,7 @@ pipeline {
                 }
                 
                 // Bước để đẩy hình ảnh lên Docker Hub
-                sh 'docker push trxngxx_nginx:jenkins_nginx_v1'
+                sh 'docker push my-nginx:jenkins-my-nginx_v1'
             }
         }
     }
