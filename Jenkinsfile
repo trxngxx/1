@@ -4,8 +4,8 @@ pipeline {
     environment {
         DOCKER_HUB_USERNAME = credentials('29trxngxx')
         DOCKER_HUB_PASSWORD = credentials('dckr_pat_jpoCKxMFDAGJrSuGS_yfrLfwkCA')
-        DOCKER_IMAGE_NAME = 'my-nginx'
-        DOCKER_IMAGE_TAG = 'latest'
+        DOCKER_IMAGE_NAME = 'jenkins-nginx'
+        DOCKER_IMAGE_TAG = 'my-nginx-v1'
     }
     
     stages {
