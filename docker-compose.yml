@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: my-nginx:latest
+    image: jenkins-nginx:latest
     ports:
       - 80:80
       - 443:443
