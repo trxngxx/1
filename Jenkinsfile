@@ -31,8 +31,8 @@ pipeline {
             steps {
                  withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dckr_pat_jpoCKxMFDAGJrSuGS_yfrLfwkCA', usernameVariable: '29trxngxx')]) {
                     sh 'docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD'
-                    sh 'docker tag my-nginx:latest 29trxngxx/my-nginx:jenkins-my-nginx_v2'
-                    sh 'docker push 29trxngxx/my-nginx:jenkins-my-nginx_v2'
+                    sh 'docker tag my-nginx:latest 29trxngxx/my-nginx:jenkins-my-nginx_v1'
+                    sh 'docker push 29trxngxx/my-nginx:jenkins-my-nginx_v1'
                 }
             }
         }
